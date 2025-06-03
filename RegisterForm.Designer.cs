@@ -28,21 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             usernameTextBox = new TextBox();
             passwordTextBox = new TextBox();
             registerButton = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // usernameTextBox
             // 
-            usernameTextBox.Location = new Point(323, 105);
+            usernameTextBox.Location = new Point(328, 146);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(125, 27);
             usernameTextBox.TabIndex = 0;
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(323, 159);
+            passwordTextBox.Location = new Point(328, 200);
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(125, 27);
             passwordTextBox.TabIndex = 1;
@@ -50,13 +53,27 @@
             // 
             // registerButton
             // 
-            registerButton.Location = new Point(323, 214);
+            registerButton.BackColor = SystemColors.ActiveCaptionText;
+            registerButton.FlatStyle = FlatStyle.Flat;
+            registerButton.ForeColor = SystemColors.ButtonFace;
+            registerButton.Location = new Point(328, 255);
             registerButton.Name = "registerButton";
             registerButton.Size = new Size(125, 29);
             registerButton.TabIndex = 2;
             registerButton.Text = "регистрация ";
-            registerButton.UseVisualStyleBackColor = true;
+            registerButton.UseVisualStyleBackColor = false;
             registerButton.Click += registerButton_Click_1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-5, -2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(810, 454);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
             // 
             // RegisterForm
             // 
@@ -66,9 +83,11 @@
             Controls.Add(registerButton);
             Controls.Add(passwordTextBox);
             Controls.Add(usernameTextBox);
+            Controls.Add(pictureBox1);
             Name = "RegisterForm";
             Text = "Окно регистрации";
             Load += RegisterForm_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -78,5 +97,6 @@
         private TextBox usernameTextBox;
         private TextBox passwordTextBox;
         private Button registerButton;
+        private PictureBox pictureBox1;
     }
 }
