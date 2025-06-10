@@ -28,46 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             usernameTextBox = new TextBox();
             passwordTextBox = new TextBox();
             loginButton = new Button();
             registerButton = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // usernameTextBox
             // 
-            usernameTextBox.Location = new Point(317, 95);
+            usernameTextBox.BackColor = SystemColors.ButtonFace;
+            usernameTextBox.BorderStyle = BorderStyle.FixedSingle;
+            usernameTextBox.Location = new Point(323, 135);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(125, 27);
             usernameTextBox.TabIndex = 0;
-
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Location = new Point(317, 143);
+            passwordTextBox.BackColor = SystemColors.ButtonFace;
+            passwordTextBox.BorderStyle = BorderStyle.FixedSingle;
+            passwordTextBox.Location = new Point(323, 183);
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(125, 27);
             passwordTextBox.TabIndex = 1;
             // 
             // loginButton
             // 
-            loginButton.Location = new Point(332, 199);
+            loginButton.BackColor = SystemColors.ControlText;
+            loginButton.FlatStyle = FlatStyle.Flat;
+            loginButton.ForeColor = SystemColors.ButtonFace;
+            loginButton.Location = new Point(323, 239);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(94, 29);
+            loginButton.Size = new Size(125, 29);
             loginButton.TabIndex = 2;
             loginButton.Text = "Войти";
-            loginButton.UseVisualStyleBackColor = true;
+            loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click_1;
             // 
             // registerButton
             // 
-            registerButton.Location = new Point(317, 247);
+            registerButton.BackColor = SystemColors.ActiveCaptionText;
+            registerButton.FlatStyle = FlatStyle.Flat;
+            registerButton.ForeColor = SystemColors.ButtonFace;
+            registerButton.Location = new Point(323, 287);
             registerButton.Name = "registerButton";
             registerButton.Size = new Size(125, 29);
             registerButton.TabIndex = 3;
             registerButton.Text = "регистрация";
-            registerButton.UseVisualStyleBackColor = true;
+            registerButton.UseVisualStyleBackColor = false;
             registerButton.Click += registerButton_Click_1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-5, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(810, 454);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // LoginForm
             // 
@@ -78,9 +102,11 @@
             Controls.Add(loginButton);
             Controls.Add(passwordTextBox);
             Controls.Add(usernameTextBox);
+            Controls.Add(pictureBox1);
             Name = "LoginForm";
             Text = "Окно входа";
             Load += LoginForm_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -91,5 +117,6 @@
         private TextBox passwordTextBox;
         private Button loginButton;
         private Button registerButton;
+        private PictureBox pictureBox1;
     }
 }

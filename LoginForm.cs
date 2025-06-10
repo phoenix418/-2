@@ -11,6 +11,8 @@ namespace ресторан_проект
 {
     public partial class LoginForm : Form
     {
+
+
         public enum UserRole { Admin, Employee, Client }
 
         public class User
@@ -62,7 +64,7 @@ namespace ресторан_проект
                 }
             }
 
-            private static void SaveUsers()
+            public static void SaveUsers()
             {
                 var json = JsonSerializer.Serialize(Users);
                 File.WriteAllText(filePath, json);
@@ -92,30 +94,38 @@ namespace ресторан_проект
 
         private void loginButton_Click_1(object sender, EventArgs e)
         {
-            var user = AuthService.Login(usernameTextBox.Text, passwordTextBox.Text);
+            var user = AuthService.Login(usernameTextBox.Text.Trim(), passwordTextBox.Text.Trim());
             if (user == null)
             {
                 MessageBox.Show("Неверные данные");
                 return;
             }
 
+            Form nextForm = null;
             switch (user.Role)
             {
                 case UserRole.Admin:
-                    var adminForm = new AdminPanelForm(user);
-                    adminForm.Show();
+                    nextForm = new AdminPanelForm(user);
                     break;
                 case UserRole.Employee:
-                    var orderForm = new OrderForm(user);
-                    orderForm.Show();
+                    nextForm = new OrderForm(user);
                     break;
                 case UserRole.Client:
-                    var menuForm = new MenuForm(user);
-                    menuForm.Show();
+                    nextForm = new MenuForm(user);
                     break;
             }
 
-            this.Hide();
+            if (nextForm != null)
+            {
+                nextForm.FormClosed += (s, args) => this.Show();
+                nextForm.Show();
+                this.Hide();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
